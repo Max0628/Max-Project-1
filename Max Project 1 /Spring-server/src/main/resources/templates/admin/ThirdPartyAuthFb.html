@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:fb="">
+<head>
+    <meta charset="UTF-8">
+    <title>Facebook Login</title>
+</head>
+<body>
+
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+
+<script>
+
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '830456979186955',
+            cookie: true,
+            xfbml: true,
+            version: 'v12.0'
+        });
+    };
+
+
+    (function (d, s, id) {
+        if (d.getElementById(id)) return;
+        var js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        var fjs = d.getElementsByTagName(s)[0];
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+    function checkLoginState() {
+        FB.getLoginStatus(function (response) {
+            if (response.status === 'connected') {
+                let accessToken = response.authResponse.accessToken;
+                signInWithFacebook(accessToken);
+            }
+        });
+    }
+
+    async function signInWithFacebook(accessToken) {
+        try {
+            const response = await fetch('/api/1.0/user/signin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({access_token: accessToken, provider: 'facebook'})
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+            console.log('Success:', data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+</script>
+</body>
+</html>

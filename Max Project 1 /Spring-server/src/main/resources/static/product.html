@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Stylish Website</title>
+    <link rel="stylesheet" href="css/product.css"/>
+</head>
+<body>
+
+<header>
+    <div class="header">
+        <nav id="nav-container">
+            <a href="index.html?category=all">
+                <img src="icons/logo.png" alt="Stylish Logo" id="stylish-logo"/>
+            </a>
+            <ul id="ul-container">
+
+                <li>
+                </li>
+                <li><a href="index.html?category=women" id="women">女裝</a></li>
+                <li><span class="divider">|</span></li>
+                <li><a href="index.html?category=men" id="men">男裝</a></li>
+                <li><span class="divider">|</span></li>
+                <li><a href="index.html?category=accessories" id="accessories">配件</a></li>
+                <li class="search-container">
+                    <div class="search-bar">
+                        <input type="text"/>
+                        <button>
+                            <img src="icons/search.png" alt="Search"/>
+                        </button>
+                    </div>
+                </li>
+                <li class="cart">
+                    <a href="#cart">
+                        <img src="icons/cart.png" alt="Cart"/>
+                    </a>
+                </li>
+                <li class="profile">
+                    <a href="profile.html">
+                        <img src="icons/member.png" alt="Profile"/>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="banner"></div>
+</header>
+
+<div id="tap-pay-div">
+    <h3>信用卡付款</h3>
+    <div class="tpfield" id="card-number"></div>
+    <div class="tpfield" id="card-expiration-date"></div>
+    <div class="tpfield" id="card-ccv"></div>
+    <button id="submit-button">Pay</button>
+    <pre id="result"></pre>
+</div>
+
+<main class="product-container">
+    <div class="product-details">
+        <div class="product-image">
+            <img id="main-image" src="" alt="產品圖片">
+        </div>
+        <div class="product-info">
+            <h1 id="product-title"></h1>
+            <p id="product-id"></p>
+            <p id="product-price"></p>
+            <div class="product-options">
+                <div class="color-options">
+                    <span>顏色 |</span>
+                    <!--                    insert different colors into this div-->
+                    <div id="color-options" class="color-container"></div>
+                </div>
+
+                <div class="size-options">
+                    <span>尺寸 |</span>
+                    <!--                    insert different size into this div-->
+                    <div id="size-options" class="size-samples"></div>
+                </div>
+
+                <div class="quantity-selector">
+                    <span>數量 |</span>
+                    <button id="decrease">-</button>
+
+                    <!--                    user can't type product, in case of error occur-->
+                    <input type="number" id="quantity" value="1" min="1" max="10" readonly>
+                    <button id="increase">+</button>
+                </div>
+                <button class="checkout-button">立即結帳</button>
+
+
+            </div>
+            <div class="product-description">
+                <p id="product-note"></p>
+                <p id="product-texture"></p>
+                <p id="product-wash"></p>
+                <p id="product-place"></p>
+            </div>
+        </div>
+    </div>
+    <div class="product-details-separator">
+        <p id="product-details"></p>
+    </div>
+    <div id="product-description">
+    </div>
+
+
+    <div class="additional-images" id="additional-images"></div>
+
+
+</main>
+
+
+<footer>
+    <div class="footer">
+        <div class="footer-links">
+            <p>
+                <a href="#about">關於Stylish</a> |
+                <a href="#service">服務條款</a> |
+                <a href="#privacy">隱私政策</a> |
+                <a href="#contact">聯絡我們</a> |
+                <a href="#faq">FAQ</a>
+            </p>
+        </div>
+        <div class="footer-icons">
+            <img src="icons/line.png" alt="Line">
+            <img src="icons/twitter.png" alt="Twitter">
+            <img src="icons/facebook.png" alt="Facebook">
+        </div>
+        <p id="copy-right">© 2022 STYLiSH. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://js.tappaysdk.com/sdk/tpdirect/v5.18.0"></script>
+
+<script src="javascript/product.js"></script>
+</body>
+</html>

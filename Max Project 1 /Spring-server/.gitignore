@@ -1,0 +1,45 @@
+
+week-0 (by 21th Jul.)/
+# 忽略幫助文件
+HELP.md
+
+# Maven 產物
+target/
+
+# 不忽略 Maven wrapper jar 文件
+!.mvn/wrapper/maven-wrapper.jar
+
+# 不忽略 src/main 和 src/test 目錄中的 target 子目錄
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+
+.DS_Store
+
+
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+
+.idea
+*.iws
+*.iml
+*.ipr
+
+
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+
+.vscode/

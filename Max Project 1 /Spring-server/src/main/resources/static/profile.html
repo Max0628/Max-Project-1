@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Stylish Website</title>
+    <link rel="stylesheet" href="css/profile.css"/>
+</head>
+<body>
+
+<header>
+    <div class="header">
+        <nav id="nav-container">
+            <a href="index.html?category=all">
+                <img src="icons/logo.png" alt="Stylish Logo" id="stylish-logo"/>
+            </a>
+            <ul id="ul-container">
+
+                <li>
+
+                </li>
+                <li><a href="index.html?category=all" id="women">女裝</a></li>
+                <li><span class="divider">|</span></li>
+                <li><a href="index.html?category=men" id="men">男裝</a></li>
+                <li><span class="divider">|</span></li>
+                <li><a href="index.html?category=accessories" id="accessories">配件</a></li>
+                <li class="search-container">
+                    <div class="search-bar">
+                        <input type="text"/>
+                        <button>
+                            <img src="icons/search.png" alt="Search"/>
+                        </button>
+                    </div>
+                </li>
+                <li class="cart">
+                    <a href="#cart">
+                        <img src="icons/cart.png" alt="Cart"/>
+                    </a>
+                </li>
+                <li class="profile">
+                    <a href="profile.html">
+                        <img src="icons/member.png" alt="Profile"/>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="banner"></div>
+</header>
+
+
+<div class="auth-container">
+    <div id="signup-form" class="form active">
+        <h2>Sign Up</h2>
+        <div class="form-group">
+            <label for="signup-name">Name</label>
+            <input type="text" id="signup-name" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" placeholder="Enter your password">
+        </div>
+        <button type="button" onclick="signup()">Sign Up</button>
+        <div class="toggle-link" onclick="toggleForm()">Already have an account? Sign In</div>
+    </div>
+
+    <!-- Sign In Form -->
+    <div id="signin-form" class="form">
+        <h2>Sign In</h2>
+        <div class="form-group">
+            <label for="signin-email">Email</label>
+            <input type="email" id="signin-email" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+            <label for="signin-password">Password</label>
+            <input type="password" id="signin-password" placeholder="Enter your password">
+        </div>
+        <button type="button" onclick="signin()">Sign In</button>
+        <div class="toggle-link" onclick="toggleForm()">Don't have an account? Sign Up</div>
+    </div>
+</div>
+
+
+<h2>User Profile</h2>
+<div>
+    <p>Name: <span id="user-name"></span></p>
+    <p>Email: <span id="user-email"></span></p>
+</div>
+
+
+<footer>
+    <div class="footer">
+        <div class="footer-links">
+            <p>
+                <a href="#about">關於Stylish</a> |
+                <a href="#service">服務條款</a> |
+                <a href="#privacy">隱私政策</a> |
+                <a href="#contact">聯絡我們</a> |
+                <a href="#faq">FAQ</a>
+            </p>
+        </div>
+        <div class="footer-icons">
+            <img src="icons/line.png" alt="Line">
+            <img src="icons/twitter.png" alt="Twitter">
+            <img src="icons/facebook.png" alt="Facebook">
+        </div>
+        <p id="copy-right">© 2022 STYLiSH. All rights reserved.</p>
+    </div>
+</footer>
+
+
+<script src="javascript/profile.js"></script>
+</body>
+</html>

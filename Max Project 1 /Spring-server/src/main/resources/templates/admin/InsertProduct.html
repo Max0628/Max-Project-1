@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Create Product</title>
+</head>
+<body>
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div style="text-align: center;">
+        <h1>Create a New Product</h1>
+        <form action="/api/1.0/products" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="category">Category</label><br/>
+                <input type="text" id="category" name="category" required placeholder="men/women"/>
+            </div>
+
+            <div>
+                <label for="title">Title</label><br/>
+                <input type="text" id="title" name="title" />
+            </div>
+
+            <div>
+                <label for="description">Description</label><br/>
+                <textarea id="description" name="description" ></textarea>
+            </div>
+
+            <div>
+                <label for="price">Price</label><br/>
+                <input type="number" id="price" name="price" />
+            </div>
+
+            <div>
+                <label for="texture">Texture</label><br/>
+                <input type="text" id="texture" name="texture" />
+            </div>
+
+            <div>
+                <label for="wash">Wash Instructions</label><br/>
+                <input type="text" id="wash" name="wash" />
+            </div>
+
+            <div>
+                <label for="place">Made In</label><br/>
+                <input type="text" id="place" name="place" />
+            </div>
+
+            <div>
+                <label for="note">Note</label><br/>
+                <textarea id="note" name="note" ></textarea>
+            </div>
+
+            <div>
+                <label for="story">Story</label><br/>
+                <textarea id="story" name="story"></textarea>
+            </div>
+
+            <!-- Variants Section -->
+            <h2>Variants</h2>
+            <div id="variants-container">
+                <div>
+                    <input type="text" id="color_code_0" name="variants[0].colorCode" required placeholder="Color Code"/>
+                    <input type="text" id="color_name_0" name="variants[0].colorName" required placeholder="Color Name"/>
+                    <input type="number" id="stock_0" name="variants[0].stock" min="1" required placeholder="Stock"/>
+                    <select id="size_0" name="variants[0].size" required>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                    </select>
+                    <button type="button" onclick="removeVariant(this)">Remove</button>
+                </div>
+            </div>
+            <button type="button" onclick="addVariant()">Add Variant</button>
+
+            <!-- Upload Images Section -->
+            <h2>Upload Images</h2>
+            <div>
+                <label for="mainImage">Main Image</label><br/>
+                <input type="file" id="mainImage" name="mainImage" accept="image/*" required/>
+            </div>
+            <div>
+                <label for="images">Other Images</label><br/>
+                <input type="file" id="images" name="images" accept="image/*" multiple/>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    let variantCount = 1;
+
+    function addVariant() {
+        const variantContainer = document.getElementById("variants-container");
+        const newVariant = document.createElement("div");
+        newVariant.innerHTML = `
+            <input type="text" id="color_code_${variantCount}" name="variants[${variantCount}].colorCode" required placeholder="Color Code"/>
+            <input type="text" id="color_name_${variantCount}" name="variants[${variantCount}].colorName" required placeholder="Color Name"/>
+            <input type="number" id="stock_${variantCount}" name="variants[${variantCount}].stock" min="1" required placeholder="Stock"/>
+            <select id="size_${variantCount}" name="variants[${variantCount}].size" required>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+            </select>
+            <button type="button" onclick="removeVariant(this)">Remove</button>
+        `;
+        variantContainer.appendChild(newVariant);
+        variantCount++;
+    }
+
+    function removeVariant(button) {
+        const variant = button.closest("div");
+        variant.remove();
+    }
+</script>
+</body>
+</html>
